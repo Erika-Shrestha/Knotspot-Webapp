@@ -36,7 +36,7 @@
 <nav>
 
 <!-- This is the image for company logo -->
-<img src="../images/companylogo.png" alt="company-logo" class="company-logo">
+<img src="${pageContext.request.contextPath}/resources/companylogo.png" alt="company-logo" class="company-logo">
 
 <!-- This is the container to select language with flag icons -->
 <div class="lang-menu-container">
@@ -54,13 +54,13 @@
 <a href="#" class="notify-link"><i class="fa-solid fa-bell"></i></a>
 
 <!-- The image is to display the pop up message -->
-<img src="../images/userpfp.jpg" alt="user-profile" class="user-pic" onclick="toggleMenu()">
+<img src="${pageContext.request.contextPath}/resources/userpfp.jpg" alt="user-profile" class="user-pic" onclick="toggleMenu()">
 
 <!-- This is pop-up wrapper to display user-profile -->
 <div class="menu-container" id="menu">
 <div class="menu">
 <div class="user-info">
-<img src="../images/userpfp.jpg" alt="user-profile">
+<img src="${pageContext.request.contextPath}/resources/userpfp.jpg" alt="user-profile">
 <h2>James Seldon</h2>
 </div>
 <hr>
