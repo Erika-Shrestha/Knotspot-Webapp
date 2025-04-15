@@ -8,14 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class Dashboard
+ * Servlet implementation class Authentication
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/dashboard"})
-public class Dashboard extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/authentication", "/" })
+public class Authentication extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/pages/dashboard.jsp").forward(request,response);
+		request.getRequestDispatcher("WEB-INF/pages/auth.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

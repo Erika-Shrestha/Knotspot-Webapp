@@ -7,5 +7,6 @@ public class DBConfig {
 	private static final String username = "root";
 	private static final String password = "";
 	
+	public static Connection getDbConnection() throws exception 
 	
 }
