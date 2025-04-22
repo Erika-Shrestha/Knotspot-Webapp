@@ -45,17 +45,198 @@ body{
 
 .form-box.register{
 	visibility:hidden;
+	justify-content: flex-start;
+	
 }
+
+.form-box.register form{
+	width: 26.5rem;
+	height: 32rem;
+	padding: 0rem 3rem 0rem 3rem;
+	margin: 1rem 3rem 0rem 3rem;
+}
+.form-box.register form h1{
+	margin-top: 0.1rem;
+}
+
+.element-container{
+	width: 100%;
+	height: 26.4rem;
+	margin-top: -1.8rem;
+}
+
 
 .main-container.active .form-box.register{
 	visibility: visible;
+}
+
+.form-box.register .input-box input{
+	height: 0.5rem;
+	
+}
+
+.form-box.register .first-con{
+	display: flex;
+	height: 2.8rem;
+	column-gap: 0.5rem;
+	
+}
+
+.form-box.register .input-box{
+		margin: 0; 
+}
+
+.form-box.register .first-con input{
+	width: 5rem;
+	
+}
+
+.form-box.register .first-con i{
+	top: 1rem;
+	right: 0.8rem;
+	
+}
+
+.add-input-box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.8rem;
+	height: 1.9rem;
+	background-color: white;
+	border-radius: 0.5rem;
+	border: 0.002rem solid #828282;
+}
+
+.form-box.register .second-con{
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	height: 5.5rem;
+	
+}
+
+.form-box.register .second-con .input-box input{
+	width: 16.9rem;
+}
+
+.form-box.register .second-con i{
+	top: 1rem;
+	right: 0.8rem;
+}
+
+.form-box.register .third-con{
+	display: flex;
+	height: 3rem;
+	font-size: 0.6rem;
+	margin-bottom: 0.3rem;
+}
+
+.radio-con{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+}
+
+.combo-box-con{
+	display: flex;
+	gap: 0.8rem;
+	width: 7rem;
+}
+
+.combo-box-con select{
+	width: 6.5rem;
+	height: 1.9rem;
+	background: white;
+	border-radius: 0.7rem;
+	border: 0.002rem solid #828282;
+	padding: 0rem 0rem 0rem 0.7rem;
+	margin-left: 0.6rem;
+	outline: none;
+	color:grey;
+	font-size: 0.7rem;
+	font-weight: 400;
+}
+
+.form-box.register .third-con .combo-box-con .input-box input{
+	width: 6rem;
+	color:grey;
+	height: 1.85rem;
+	padding: 0rem 0.3rem 0rem 0.2rem;
+}
+
+.form-box.register .last-con{
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	height: 5.5rem;
+	
+}
+
+.form-box.register .last-con .input-box input{
+	width: 16.9rem;
+}
+
+
+.form-box.register .last-con i{
+	right: 0.8rem;
+}
+
+.form-box.register .last-con .password-column{
+	display: flex;
+	column-gap: 0.5rem;
+}
+
+.form-box.register .last-con .password-column .input-box input{
+	width: 8.6rem;
+	padding: 0.7rem 0.6rem 0.7rem 1rem;
+}
+
+.form-box.register .last-con .input-box{
+	display: flex;
+}
+
+.check-box-con{
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 0.3rem;
+
+}
+
+.form-box.register .last-con .check-box-con label{
+	display: flex;
+	align-items: center;
+	font-size: 0.5rem;
+}
+
+.form-box.register .last-con .check-box-con input{
+	width: 1.9rem;
+}
+
+.form-box.register .element-container button{
+	width: 21rem;
+	margin-top: 2.1rem;
+}
+
+.form-box.register .element-container h2{
+	margin-top: 0.7rem;
+}
+
+.form-box.register .element-container .social-btn{
+	margin-top: 1rem;
+}
+
+.form-box.register .element-container .google-box i{
+	left: 7rem;
+	top: 88%;
 }
 
 form{
 	margin-top:auto;
 	width: 50%;
 	height: 90%;
-	
+
 }
 
 .main-container h1{
@@ -78,9 +259,15 @@ form{
 	border-radius: 0.7rem;
 	border: 0.002rem solid #828282;
 	outline: none;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-weight: 500;
 	
+}
+
+.input-box input.input-password{
+	width: 12rem;
+	height: 0.7rem;
+	padding: 0.7rem 1rem 0.7rem 1rem;
 }
 
 .input-box input::placeholder{
@@ -96,7 +283,7 @@ form{
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 1rem;
-	color: grey;
+	
 	
 }
 
@@ -151,6 +338,10 @@ form{
 	outline: none;
 }
 
+.btn:hover{
+	cursor: pointer;
+}
+
 .social-btn{
 	width: 85%;
 	height: 2rem;
@@ -161,6 +352,10 @@ form{
 	box-shadow: none;
 	border: none;
 	outline: none;
+}
+
+.social-btn:hover{
+	cursor: pointer;
 }
 
 .highlighted{
@@ -187,7 +382,6 @@ form p{
 	position: absolute;
 	width:100%;
 	height:100%;
-	
 }
 
 .toggle-box::before{
@@ -195,12 +389,13 @@ form p{
 	position: absolute;
 	width:195rem;
 	height: 35rem;
-	background-color: blue;
 	left: -162.5rem;
 	border-radius: 9.5rem;
 	z-index: 2;
 	transition: 1.8s ease-in-out;
+	
 }
+
 
 .main-container.active .toggle-box::before{
 	left:32.5rem;
@@ -270,6 +465,24 @@ form p{
 	
 }
 
+.register-btn:hover, .login-btn:hover{
+	cursor: pointer;
+}
 
+.sliding-image{
+	position: absolute;
+	width:195rem;
+	height: 35rem;
+	left:-162.5rem;
+  	object-fit: cover;
+  	border-radius: 0 9.5rem 9.5rem 0;
+ 	z-index: 1;
+ 	transition: 1.8s ease-in-out;
+}
+
+.main-container.active .sliding-image{
+  left: 32.5rem;
+  border-radius: 9.5rem 0 0 9.5rem;
+}
 
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>knotspot</title>
 <!-- This connects to dashboard.css file -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/auth.css">
 
@@ -26,8 +26,7 @@
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="input-box">
-	<input type="password" placeholder="Enter your password" required>
-	<i class="fa-solid fa-eye-slash"></i>
+	<input class="input-password" type="password" placeholder="Enter your password" required>
 	</div>
 	<div class="forgot-link">
 	<a href="#">Forgot password ?</a>
@@ -45,41 +44,81 @@
 	<div class ="form-box register">
 	<form action="">
 	<h1>Register</h1>
+	<div class="element-container">
+	<div class="first-con">
 	<div class="input-box">
 	<input type="text" placeholder="First name*" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
+	<div class="add-input-box">
+	<i class="fa-solid fa-plus"></i>
+	</div>
 	<div class="input-box">
 	<input type="text" placeholder="Last name*" required>
-	<i class="fa-solid fa-eye-slash"></i>
+	<i class="fa-solid fa-user"></i>
+	</div>
+	</div>
+	<div class="second-con">
+	<div class="input-box">
+	<input type="email" placeholder="Email*">
+	<i class="fa-solid fa-envelope"></i>
 	</div>
 	<div class="input-box">
 	<input type="tel" placeholder="Contact name*">
-	<i class="fa-solid fa-eye-slash"></i>
+	<i class="fa-solid fa-phone"></i>
+	</div>
+	</div>
+	<div class="third-con">
+	<div class="radio-con">
+	<input type="radio" name="gender">&nbsp;Male
+	<input type="radio" name="gender">&nbsp;Female
+	</div>
+	<div class="combo-box-con">
+	<div class="input-box">
+	<select class="city" name="city" required>
+	<option value="" disabled selected>Address</option>
+	<option>Koteshwor</option>
+	<option>Bouddha</option>
+	</select>
 	</div>
 	<div class="input-box">
-	<input type="text" placeholder="Enter your username" required>
+	<input type="date" class="birthday" name="birthday" required>
+	</div>
+	</div>
+	</div>
+	
+	<div class="last-con">
+	<div class="input-box">
+	<input type="text" placeholder="Username*" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
+	<div class="password-column">
 	<div class="input-box">
-	<input type="password" placeholder="Enter your password" required>
-	<i class="fa-solid fa-eye-slash"></i>
+	<input type="password" placeholder="Password*" required>
 	</div>
 	<div class="input-box">
-	<input type="checkbox"><p>I agree to the <span style="color: blue">terms and conditions</span></p>
-	<i class="fa-solid fa-eye-slash"></i>
+	<input type="password" placeholder="Confirm password*" required>
 	</div>
-	<button type="submit" class="btn">Submit</button>
+	</div>
+	<div class="check-box-con">
+	<label>
+	<input type="checkbox">I agree to the <span style="color: blue">&nbsp;terms and conditions</span>
+	</label>
+	</div>
+	</div>
+
+	<button type="submit" class="btn">Register</button>
 	<h2 class="continue-break">or continue with</h2>
 	<div class="google-box">
 	<button class="social-btn">google</button>
 	<i class="fa-brands fa-google"></i>
 	</div>
-	<p>By clicking continue, you agree to our <span class="highlighted">Terms of <br> Service</span> and <span class="highlighted">Privacy Policy</span></p>
+	</div>
 	</form>
 	</div>
 	
 	<div class="toggle-box">
+		<img class="sliding-image" src="${pageContext.request.contextPath}/resources/login.jpg">
 		<div class="toggle-pnl toggle-left">
 			<h1>Hello there,<br><span class="greeting-spn">Welcome to Knot spot!</span></h1>
 			<p>Don't have an account?</p>
