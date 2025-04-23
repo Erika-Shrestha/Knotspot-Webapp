@@ -11,6 +11,7 @@ import java.time.Period;
 import java.time.format.DateTimeParseException; 
 
 import com.knotspot.model.UserModel;
+import com.knotspot.service.LoginService;
 import com.knotspot.service.RegisterService;
 import com.knotspot.util.ValidationUtil;
 
@@ -26,13 +27,19 @@ public class AuthenticationController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String formAction = request.getParameter("register");
+		String registerFormAction = request.getParameter("register");
+		String loginFormAction = request.getParameter("login");
 
-		if("register".equals(formAction)) {
+		if("register".equals(registerFormAction)) {
 			
 			//calling the register logic method
 			handleRegister(request, response);
 			
+		}
+		else if("login".equals(loginFormAction)){
+			System.out.println("calls handlelogin");
+			//calling the login logic method
+			handleLogin(request, response);
 		}
 		
 	}
@@ -89,6 +96,7 @@ public class AuthenticationController extends HttpServlet {
 				System.out.println("Reacher here 1");
 				if (createdUser != null) {
 					System.out.println("Reacher here 2");
+					response.sendRedirect(request.getContextPath() + "/authentication");
 						
 				}
 			}
@@ -103,12 +111,12 @@ public class AuthenticationController extends HttpServlet {
 	//a try-catch for validationfield 
 	public static boolean checkInputField(HttpServletRequest request, String field, String value, String attribute) {
 		boolean isValid = true;
-		
 		try {
 			getInputField(field, value, attribute);
 		}
 		catch(NullPointerException | IndexOutOfBoundsException | IllegalArgumentException e) {
 			request.setAttribute(field+"Error", e.getMessage());
+			System.out.println(e.getMessage());
 			isValid = false;
 		}
 		return isValid;
@@ -117,6 +125,7 @@ public class AuthenticationController extends HttpServlet {
 	//a try-catch for validationfield 
 		public static boolean checkPasswordField(HttpServletRequest request, String password, String retypePassword, String attribute, String username) {
 			boolean isValid = true;
+			
 			
 			try {
 				ValidationUtil.doPasswordsMatch(password, retypePassword, attribute, username);
@@ -150,7 +159,30 @@ public class AuthenticationController extends HttpServlet {
 			ValidationUtil.isValidUserName(value, attribute);
 		}
 	}
-
+	
+	
+	//login
+	public void handleLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		if(username !=null && password !=null) {
+			System.out.println("user and password is not empty");
+			UserModel users = new UserModel();
+			users.setUsername(username);
+			users.setPassword(password);
+			
+			LoginService loginService = new LoginService();
+			UserModel retreivedUser = loginService.retreiveUsers(users);
+			
+			if(retreivedUser !=null) {
+				System.out.println("The user is retreived");
+				response.sendRedirect(request.getContextPath() + "/dashboard");
+			}
+		}
+		
+	}
 	
 
 }

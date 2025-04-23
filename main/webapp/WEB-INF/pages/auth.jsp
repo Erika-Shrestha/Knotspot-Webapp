@@ -19,21 +19,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-	<div class="main-container">
+	<div class="main-container <c:if test="${not empty showRegister}">active</c:if>">
 	<div class ="form-box login">
 	<form action="${pageContext.request.contextPath}/authentication" method="post">
 	<h1>Login</h1>
 	<div class="input-box">
-	<input type="text" placeholder="Enter your username" required>
+	<input type="text" placeholder="Enter your username" name="username" required>
 	<i class="fa-solid fa-user"></i>
-	<c:if test="${not empty firstnameError}">
-		<div class="errorDisplay">
-			<p>${firstnameError}</p>
-		</div>
-	</c:if>
 	</div>
 	<div class="input-box">
-	<input class="input-password" type="password" placeholder="Enter your password" required>
+	<input class="input-password" type="password" placeholder="Enter your password" name="password" required>
 	</div>
 	<div class="forgot-link">
 	<a href="#">Forgot password ?</a>
@@ -54,7 +49,13 @@
 	<h1>Register</h1>
 	<div class="element-container">
 	<div class="first-con">
+	
 	<div class="input-box">
+	<c:if test="${not empty firstnameError}">
+		<div class="errorDisplay">
+			<p>${firstnameError}</p>
+		</div>
+	</c:if>
 	<input type="text" placeholder="First name*" name="firstname" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
@@ -62,6 +63,11 @@
 	<i class="fa-solid fa-plus"></i>
 	</div>
 	<div class="input-box">
+	<c:if test="${not empty lastnameError}">
+		<div class="errorDisplay">
+			<p>${lastnameError}</p>
+		</div>
+	</c:if>
 	<input type="text" placeholder="Last name*" name="lastname" required>
 	<i class="fa-solid fa-user"></i>
 	</div>

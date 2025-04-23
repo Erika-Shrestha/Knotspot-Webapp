@@ -35,6 +35,11 @@ public class UserModel {
 	}
 
 
+	public UserModel() {
+		
+	}
+
+
 	public int getUserId() {
 		return userId;
 	}
