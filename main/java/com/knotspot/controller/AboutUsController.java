@@ -8,17 +8,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class Authentication
+ * Servlet implementation class AboutUs
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/authentication", "/" })
-public class Authentication extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/aboutUs" })
+public class AboutUsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/pages/auth.jsp").forward(request,response);
+		request.getRequestDispatcher("WEB-INF/pages/Customer/aboutus.jsp").forward(request,response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

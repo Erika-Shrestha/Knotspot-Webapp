@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +21,16 @@
 <body>
 	<div class="main-container">
 	<div class ="form-box login">
-	<form action="">
+	<form action="${pageContext.request.contextPath}/authentication" method="post">
 	<h1>Login</h1>
 	<div class="input-box">
 	<input type="text" placeholder="Enter your username" required>
 	<i class="fa-solid fa-user"></i>
+	<c:if test="${not empty firstnameError}">
+		<div class="errorDisplay">
+			<p>${firstnameError}</p>
+		</div>
+	</c:if>
 	</div>
 	<div class="input-box">
 	<input class="input-password" type="password" placeholder="Enter your password" required>
@@ -31,7 +38,7 @@
 	<div class="forgot-link">
 	<a href="#">Forgot password ?</a>
 	</div>
-	<button type="submit" class="btn">Login</button>
+	<button type="submit" class="btn" name="login" value="login">Login</button>
 	<h2 class="continue-break">or continue with</h2>
 	<div class="google-box">
 	<button class="social-btn">google</button>
@@ -41,37 +48,38 @@
 	</form>
 	</div>
 	
+	<!-- if c tag error then show active form of register  -->
 	<div class ="form-box register">
-	<form action="">
+	<form action="${pageContext.request.contextPath}/authentication" method="post">
 	<h1>Register</h1>
 	<div class="element-container">
 	<div class="first-con">
 	<div class="input-box">
-	<input type="text" placeholder="First name*" required>
+	<input type="text" placeholder="First name*" name="firstname" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="add-input-box">
 	<i class="fa-solid fa-plus"></i>
 	</div>
 	<div class="input-box">
-	<input type="text" placeholder="Last name*" required>
+	<input type="text" placeholder="Last name*" name="lastname" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	</div>
 	<div class="second-con">
 	<div class="input-box">
-	<input type="email" placeholder="Email*">
+	<input type="email" placeholder="Email*" name="email" required>
 	<i class="fa-solid fa-envelope"></i>
 	</div>
 	<div class="input-box">
-	<input type="tel" placeholder="Contact name*">
+	<input type="tel" placeholder="Contact name*" name="contact" required>
 	<i class="fa-solid fa-phone"></i>
 	</div>
 	</div>
 	<div class="third-con">
 	<div class="radio-con">
-	<input type="radio" name="gender">&nbsp;Male
-	<input type="radio" name="gender">&nbsp;Female
+	<input type="radio" name="gender" value="Male" required>&nbsp;Male
+	<input type="radio" name="gender" value="Female" >&nbsp;Female
 	</div>
 	<div class="combo-box-con">
 	<div class="input-box">
@@ -89,15 +97,15 @@
 	
 	<div class="last-con">
 	<div class="input-box">
-	<input type="text" placeholder="Username*" required>
+	<input type="text" placeholder="Username*" name="username" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="password-column">
 	<div class="input-box">
-	<input type="password" placeholder="Password*" required>
+	<input type="password" placeholder="Password*" name="password" required>
 	</div>
 	<div class="input-box">
-	<input type="password" placeholder="Confirm password*" required>
+	<input type="password" placeholder="Confirm password*" name="retypePassword" required>
 	</div>
 	</div>
 	<div class="check-box-con">
@@ -107,7 +115,7 @@
 	</div>
 	</div>
 
-	<button type="submit" class="btn">Register</button>
+	<button type="submit" class="btn" name="register" value="register">Register</button>
 	<h2 class="continue-break">or continue with</h2>
 	<div class="google-box">
 	<button class="social-btn">google</button>

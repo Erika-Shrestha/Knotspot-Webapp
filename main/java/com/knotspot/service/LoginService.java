@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.knotspot.config.DBConfig;
+import com.knotspot.config.DdConfig;
 
 public class LoginService {
 	
@@ -18,7 +19,7 @@ public class LoginService {
 	 */
 	public LoginService() {
 		try {
-			dbCon = DBConfig.getDbConnection();
+			dbCon = DdConfig.getDbConnection();
 		}
 		catch(SQLException | ClassNotFoundException e) {
 			System.out.println(e.toString());

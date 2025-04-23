@@ -485,4 +485,8 @@ form p{
   border-radius: 9.5rem 0 0 9.5rem;
 }
 
-
+.errorDisplay{
+	border: 0.1rem solid #FF5733;
+	font-size: 0.5rem;
+	color: #FF5733;
+}
