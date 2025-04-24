@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -23,7 +25,19 @@ public class AuthenticationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/pages/auth.jsp").forward(request,response);
+		//use of cache control to not store the data 
+		response.setHeader("Cache-Control","no-store");
+		
+		//checks if user can access the login page even after being logged in 
+		HttpSession session = request.getSession(false);
+		if(session !=null) {
+		String userSession = (String) session.getAttribute("username");
+		if(userSession !=null) {
+			response.sendRedirect(request.getContextPath() + "/dashboard");
+			return;
+		}
+		}
+		request.getRequestDispatcher("/WEB-INF/pages/auth.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -102,6 +116,15 @@ public class AuthenticationController extends HttpServlet {
 			}
 			else {
 				request.setAttribute("showRegister", true);
+				request.setAttribute("firstname", firstName);
+				request.setAttribute("lastname", lastName);
+				request.setAttribute("email", email);
+				request.setAttribute("contact", contact);
+				request.setAttribute("gender", gender);
+				request.setAttribute("address", request.getParameter("city"));
+				request.setAttribute("birthday", stringDob);
+				request.setAttribute("username", username);
+				
 				request.getRequestDispatcher("/WEB-INF/pages/auth.jsp").forward(request, response);
 			}
 			
@@ -178,7 +201,17 @@ public class AuthenticationController extends HttpServlet {
 			
 			if(retreivedUser !=null) {
 				System.out.println("The user is retreived");
+				//creates a session for each new users if does not exists makes one using true
+				HttpSession session = request.getSession(true);
+				session.setAttribute("username", username);
+				System.out.println(session.getAttribute("username"));
 				response.sendRedirect(request.getContextPath() + "/dashboard");
+
+			}
+			else {
+				request.setAttribute("username", username);
+				request.setAttribute("errorMessage", "Invalid username or password");
+				request.getRequestDispatcher("/WEB-INF/pages/auth.jsp").forward(request, response);
 			}
 		}
 		

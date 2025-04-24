@@ -24,7 +24,7 @@
 	<form action="${pageContext.request.contextPath}/authentication" method="post">
 	<h1>Login</h1>
 	<div class="input-box">
-	<input type="text" placeholder="Enter your username" name="username" required>
+	<input type="text" placeholder="Enter your username" name="username" value="${username}"required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="input-box">
@@ -32,7 +32,11 @@
 	</div>
 	<div class="forgot-link">
 	<a href="#">Forgot password ?</a>
+	<c:if test="${not empty errorMessage}">
+		<label class="errorMessage">${errorMessage}</label>
+	</c:if>
 	</div>
+	
 	<button type="submit" class="btn" name="login" value="login">Login</button>
 	<h2 class="continue-break">or continue with</h2>
 	<div class="google-box">
@@ -52,11 +56,9 @@
 	
 	<div class="input-box">
 	<c:if test="${not empty firstnameError}">
-		<div class="errorDisplay">
-			<p>${firstnameError}</p>
-		</div>
+		<label class="errorDisplay firstname">${firstnameError}</label>
 	</c:if>
-	<input type="text" placeholder="First name*" name="firstname" required>
+	<input type="text" id="firstname" placeholder="First name*" name="firstname" value="${firstname}" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="add-input-box">
@@ -64,54 +66,70 @@
 	</div>
 	<div class="input-box">
 	<c:if test="${not empty lastnameError}">
-		<div class="errorDisplay">
-			<p>${lastnameError}</p>
-		</div>
+		<label class="errorDisplay lastname">${lastnameError}</label>
 	</c:if>
-	<input type="text" placeholder="Last name*" name="lastname" required>
+	<input type="text" id="lastname"  placeholder="Last name*" name="lastname" value="${lastname}" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	</div>
 	<div class="second-con">
 	<div class="input-box">
-	<input type="email" placeholder="Email*" name="email" required>
+	<c:if test="${not empty emailError}">
+		<label class="errorDisplay email">${emailError}</label>
+	</c:if>
+	<input type="email" id="email" placeholder="Email*" name="email" value="${email}" required>
 	<i class="fa-solid fa-envelope"></i>
 	</div>
 	<div class="input-box">
-	<input type="tel" placeholder="Contact name*" name="contact" required>
+	<c:if test="${not empty contactError}">
+		<label class="errorDisplay contact">${contactError}</label>
+	</c:if>
+	<input type="tel" id="contact" placeholder="Contact name*" name="contact" value="${contact}" required>
 	<i class="fa-solid fa-phone"></i>
 	</div>
 	</div>
 	<div class="third-con">
 	<div class="radio-con">
-	<input type="radio" name="gender" value="Male" required>&nbsp;Male
-	<input type="radio" name="gender" value="Female" >&nbsp;Female
+	<c:if test="${not empty genderError}">
+		<label class="errorDisplay gender">${genderError}</label>
+	</c:if>
+	<input type="radio" name="gender" value="Male" value="Male" ${gender == 'Male' ? 'checked' : ''} required>&nbsp;Male
+	<input type="radio" name="gender" value="Female" ${gender == 'Female' ? 'checked' : ''} >&nbsp;Female
 	</div>
 	<div class="combo-box-con">
 	<div class="input-box">
 	<select class="city" name="city" required>
-	<option value="" disabled selected>Address</option>
-	<option>Koteshwor</option>
-	<option>Bouddha</option>
+	<option value="" disabled>Address</option>
+	<option value="Koteshwor" ${city == 'Koteshwor' ? 'selected' : ''}>Koteshwor</option>
+	<option value="Bouddha" ${city == 'Bouddha' ? 'selected' : ''}>Bouddha</option>
 	</select>
 	</div>
 	<div class="input-box">
-	<input type="date" class="birthday" name="birthday" required>
+	<c:if test="${not empty dobError}">
+		<label class="errorDisplay dob">${dobError}</label>
+	</c:if>
+	<input type="date" class="birthday" id="dob" name="birthday" value="${birthday}" required>
 	</div>
 	</div>
 	</div>
 	
 	<div class="last-con">
 	<div class="input-box">
-	<input type="text" placeholder="Username*" name="username" required>
+	<c:if test="${not empty usernameError}">
+		<label class="errorDisplay username">${usernameError}</label>
+	</c:if>
+	<input type="text" id="username" placeholder="Username*" name="username" value="${username}" required>
 	<i class="fa-solid fa-user"></i>
 	</div>
 	<div class="password-column">
 	<div class="input-box">
-	<input type="password" placeholder="Password*" name="password" required>
+	<c:if test="${not empty passwordError}">
+		<label class="errorDisplay password">${passwordError}</label>
+	</c:if>
+	<input type="password" id="password" placeholder="Password*" name="password" required>
 	</div>
 	<div class="input-box">
-	<input type="password" placeholder="Confirm password*" name="retypePassword" required>
+	<input type="password" id="retypePassword" placeholder="Confirm password*" name="retypePassword" required>
 	</div>
 	</div>
 	<div class="check-box-con">

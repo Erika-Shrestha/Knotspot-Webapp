@@ -15,7 +15,7 @@ public class Product extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/pages/Customer/product.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/pages/Customer/product.jsp").forward(request,response);
 		
 	}
 

@@ -16,7 +16,7 @@ public class ContactUs extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("WEB-INF/pages/Customer/contactus.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/pages/Customer/contactus.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

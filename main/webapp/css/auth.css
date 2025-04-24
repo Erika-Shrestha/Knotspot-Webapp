@@ -483,7 +483,50 @@ form p{
 }
 
 .errorDisplay{
-	border: 0.1rem solid #FF5733;
+	display: flex;
+	position: absolute;
+	width: 10rem;
+	height: 1rem;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.1rem;
 	font-size: 0.5rem;
-	color: #FF5733;
+	background-color: #FDCAC4;
+	color: #ED6160;
+	top: -50%;
+	left: 30%;
+}
+
+.errorDisplay.firstname, .errorDisplay.lastname{
+	height: 1.3rem;
+}
+
+.errorDisplay.dob{
+	width: 8rem;
+}
+
+.errorDisplay::before{
+	content: "";
+	width: 0rem;
+	height: 0rem;
+	border-left: 0.35rem solid transparent;
+	border-right: 0.35rem solid transparent;
+	border-top: 0.7rem solid #FDCAC4;
+	position: absolute;
+	bottom: -50%;
+	left: 10%;
+}
+
+.errorMessage{
+	display: flex;
+	width: 12rem;
+	height: 1.2rem;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.1rem;
+	font-size: 0.7rem;
+	margin-top: 1rem;
+	margin-left: 2rem;
+	background-color: #FDCAC4;
+	color: #ED6160;
 }

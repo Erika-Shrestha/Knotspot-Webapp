@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -15,7 +17,19 @@ public class Dashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/pages/dashboard.jsp").forward(request,response);
+		
+		//to make sure the session id exists otherwise returns null
+		HttpSession session = request.getSession(false);
+		//converting back to string from an object
+		String userSession = (String) session.getAttribute("username");
+		if(userSession !=null ) {
+			System.out.println("Session is created");
+			request.getRequestDispatcher("/WEB-INF/pages/Admin/dashboard.jsp").forward(request,response);
+			return;
+		}
+		else {
+			response.sendRedirect(request.getContextPath()+"/authentication");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
